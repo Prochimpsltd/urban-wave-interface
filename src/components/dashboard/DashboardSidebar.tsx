@@ -1,30 +1,33 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Clock, Users, Bot, DollarSign, Settings, PanelLeft, FileCog, PaintBucket } from 'lucide-react';
+import { MessageSquare, Clock, Users, Bot, DollarSign, Settings, PanelLeft, FileCog, PaintBucket, Book, Plus } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 interface SidebarItemProps {
   icon: React.ReactNode;
   label: string;
   active?: boolean;
-  href: string;
+  onClick: () => void;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ icon, label, active = false, href }) => (
-  <Link to={href}>
-    <Button
-      variant={active ? "secondary" : "ghost"}
-      className={`w-full justify-start ${active ? 'bg-white/10' : ''}`}
-    >
-      {icon}
-      <span className="ml-3">{label}</span>
-    </Button>
-  </Link>
+const SidebarItem: React.FC<SidebarItemProps> = ({ icon, label, active = false, onClick }) => (
+  <Button
+    variant={active ? "secondary" : "ghost"}
+    className={`w-full justify-start ${active ? 'bg-white/10' : ''}`}
+    onClick={onClick}
+  >
+    {icon}
+    <span className="ml-3">{label}</span>
+  </Button>
 );
 
-const DashboardSidebar: React.FC = () => {
+interface DashboardSidebarProps {
+  activeSection: string;
+  onSectionChange: (section: string) => void;
+}
+
+const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ activeSection, onSectionChange }) => {
   return (
     <div className="w-64 bg-urban-dark-2 border-r border-white/10 h-screen overflow-y-auto fixed">
       <div className="flex flex-col h-full">
@@ -39,28 +42,38 @@ const DashboardSidebar: React.FC = () => {
             <SidebarItem 
               icon={<MessageSquare className="w-5 h-5" />} 
               label="AI Chatbot" 
-              active={true}
-              href="/dashboard" 
+              active={activeSection === 'dashboard'}
+              onClick={() => onSectionChange('dashboard')} 
             />
             <SidebarItem 
               icon={<Clock className="w-5 h-5" />} 
               label="Chat History" 
-              href="/dashboard/history" 
+              active={activeSection === 'history'}
+              onClick={() => onSectionChange('history')} 
             />
             <SidebarItem 
               icon={<Users className="w-5 h-5" />} 
               label="Leads" 
-              href="/dashboard/leads" 
+              active={activeSection === 'leads'}
+              onClick={() => onSectionChange('leads')} 
             />
             <SidebarItem 
               icon={<Bot className="w-5 h-5" />} 
               label="AI Chatbots" 
-              href="/dashboard/chatbots" 
+              active={activeSection === 'chatbots'}
+              onClick={() => onSectionChange('chatbots')} 
             />
             <SidebarItem 
-              icon={<DollarSign className="w-5 h-5" />} 
-              label="Billing" 
-              href="/dashboard/billing" 
+              icon={<Book className="w-5 h-5" />} 
+              label="Knowledge Base" 
+              active={activeSection === 'knowledge-base'}
+              onClick={() => onSectionChange('knowledge-base')} 
+            />
+            <SidebarItem 
+              icon={<Plus className="w-5 h-5" />} 
+              label="Create New Chatbot" 
+              active={activeSection === 'create-chatbot'}
+              onClick={() => onSectionChange('create-chatbot')} 
             />
           </div>
         </div>
@@ -73,17 +86,20 @@ const DashboardSidebar: React.FC = () => {
             <SidebarItem 
               icon={<FileCog className="w-5 h-5" />} 
               label="API Management" 
-              href="/dashboard/api" 
+              active={activeSection === 'api'}
+              onClick={() => onSectionChange('api')} 
             />
             <SidebarItem 
               icon={<PaintBucket className="w-5 h-5" />} 
               label="White Label Service" 
-              href="/dashboard/white-label" 
+              active={activeSection === 'white-label'}
+              onClick={() => onSectionChange('white-label')} 
             />
             <SidebarItem 
               icon={<Settings className="w-5 h-5" />} 
               label="Settings" 
-              href="/dashboard/settings" 
+              active={activeSection === 'settings'}
+              onClick={() => onSectionChange('settings')} 
             />
           </div>
         </div>
