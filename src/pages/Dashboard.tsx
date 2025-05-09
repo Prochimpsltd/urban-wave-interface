@@ -8,6 +8,7 @@ import ChatbotListContent from '@/components/dashboard/ChatbotListContent';
 import LeadsContent from '@/components/dashboard/LeadsContent';
 import WebCrawlerContent from '@/components/dashboard/WebCrawlerContent';
 import KnowledgeBaseContent from '@/components/dashboard/KnowledgeBaseContent';
+import ComingSoonContent from '@/components/dashboard/ComingSoonContent';
 
 const Dashboard: React.FC = () => {
   // In a real app, this would come from an auth provider
@@ -34,6 +35,12 @@ const Dashboard: React.FC = () => {
         return <WebCrawlerContent />;
       case 'knowledge-base':
         return <KnowledgeBaseContent />;
+      case 'api':
+        return <ComingSoonContent title="API Management" />;
+      case 'white-label':
+        return <ComingSoonContent title="White Label Service" />;
+      case 'settings':
+        return <ComingSoonContent title="Settings" />;
       default:
         return <DashboardContent />;
     }

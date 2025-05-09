@@ -17,3 +17,17 @@ export interface CrawledUrl {
 }
 
 export type WebCrawlerStep = 'crawler' | 'setup' | 'preview';
+
+export interface ChatHistoryItem {
+  id: string;
+  botName: string;
+  timestamp: string;
+  lastMessage: string;
+  sentimentScore: number;
+  serialNumber: string;
+  conversation: Array<{
+    isBot: boolean;
+    message: string;
+    timestamp: string;
+  }>;
+}

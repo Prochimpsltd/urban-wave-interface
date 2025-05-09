@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Clock, Users, Bot, DollarSign, Settings, PanelLeft, FileCog, PaintBucket, Book, Plus } from 'lucide-react';
+import { MessageSquare, Clock, Users, Bot, Settings, PanelLeft, FileCog, PaintBucket, Book, Plus, LayoutDashboard } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 interface SidebarItemProps {
@@ -40,8 +40,8 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ activeSection, onSe
           
           <div className="space-y-1">
             <SidebarItem 
-              icon={<MessageSquare className="w-5 h-5" />} 
-              label="AI Chatbot" 
+              icon={<LayoutDashboard className="w-5 h-5" />} 
+              label="Dashboard" 
               active={activeSection === 'dashboard'}
               onClick={() => onSectionChange('dashboard')} 
             />
