@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,7 +7,8 @@ import { Progress } from '@/components/ui/progress';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Bot, ChevronRight, Play, Web, Clock } from 'lucide-react';
+import { Bot, ChevronRight, Play, Globe, Clock } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 import { useForm } from 'react-hook-form';
 
 interface CrawlForm {
@@ -127,7 +127,7 @@ const WebCrawlerContent: React.FC = () => {
           <Card className="bg-urban-dark-3 border-none">
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
-                <Web className="mr-2 h-5 w-5 text-urban-teal" />
+                <Globe className="mr-2 h-5 w-5 text-urban-teal" />
                 Web Crawler Configuration
               </CardTitle>
             </CardHeader>
@@ -329,7 +329,7 @@ const WebCrawlerContent: React.FC = () => {
                   <Label>Knowledge Base</Label>
                   <Card className="bg-urban-dark-2 border-urban-dark p-3 mt-1">
                     <div className="flex items-center">
-                      <Web className="h-4 w-4 text-urban-teal mr-2" />
+                      <Globe className="h-4 w-4 text-urban-teal mr-2" />
                       <span className="text-sm">{form.getValues().url || 'No URL specified'}</span>
                       <Badge className="ml-auto">{crawledUrls.length} URLs</Badge>
                     </div>

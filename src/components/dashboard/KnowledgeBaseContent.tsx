@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Book, FileText, Web, Clock, MoreHorizontal } from 'lucide-react';
+import { Book, FileText, Globe, Clock, MoreHorizontal, Bot } from 'lucide-react';
 
 const knowledgeBases = [
   {
@@ -95,7 +95,7 @@ const KnowledgeBaseContent: React.FC = () => {
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center text-sm">
-                    <Web className="h-4 w-4 text-gray-400 mr-2" />
+                    <Globe className="h-4 w-4 text-gray-400 mr-2" />
                     <span className="text-gray-400">Source:</span>
                     <span className="ml-2 truncate">{kb.source} • {kb.sourceUrl}</span>
                   </div>
