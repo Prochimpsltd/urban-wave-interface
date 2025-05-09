@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { InfoCircle, Users, MessageSquare, CreditCard } from 'lucide-react';
+import { Info, Users, MessageSquare, CreditCard } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -41,7 +41,7 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon, infoTooltip }) 
           {title}
           {infoTooltip && (
             <Button variant="ghost" size="icon" className="ml-1 h-4 w-4">
-              <InfoCircle className="h-3 w-3" />
+              <Info className="h-3 w-3" />
             </Button>
           )}
         </CardTitle>
@@ -95,7 +95,7 @@ const DashboardContent: React.FC = () => {
             <div className="flex items-center">
               <CardTitle className="text-lg font-medium">Message Activity</CardTitle>
               <Button variant="ghost" size="icon" className="ml-1 h-5 w-5">
-                <InfoCircle className="h-4 w-4" />
+                <Info className="h-4 w-4" />
               </Button>
             </div>
             
@@ -158,7 +158,7 @@ const DashboardContent: React.FC = () => {
               <div className="flex items-center">
                 <CardTitle className="text-lg font-medium">Peak Message Times</CardTitle>
                 <Button variant="ghost" size="icon" className="ml-1 h-5 w-5">
-                  <InfoCircle className="h-4 w-4" />
+                  <Info className="h-4 w-4" />
                 </Button>
               </div>
             </CardHeader>
